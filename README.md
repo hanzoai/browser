@@ -43,7 +43,7 @@ Looking for a powerful AI browser agent without the $200/month price tag of Open
 - **Flexible LLM Options** - Connect to your preferred LLM providers with the freedom to choose different models for different agents.
 - **Fully Open Source** - Complete transparency in how your browser is automated. No black boxes or hidden processes.
 
-> **Note:** We currently support OpenAI, Anthropic, Gemini, Ollama, Groq, Cerebras, Llama and custom OpenAI-Compatible providers, more providers will be supported.
+> **Note:** We currently support OpenAI, Anthropic, Gemini, Ollama, Hanzo Engine (Local / BYOK), Groq, Cerebras, Llama and custom OpenAI-Compatible providers, more providers will be supported.
 
 
 ## 📊 Key Features
@@ -162,8 +162,9 @@ Nanobrowser allows you to configure different LLM models for each agent to balan
 
 ### Local Models
 - **Setup Options**:
-  - Use Ollama or other custom OpenAI-compatible providers to run models locally
-  - Zero API costs and complete privacy with no data leaving your machine
+  - **Hanzo Engine (Local / BYOK)**: Connect directly to a local `hanzoai/engine` instance running at `http://127.0.0.1:1234/v1` for offline, zero-latency multi-agent navigation.
+  - **Ollama / Custom OpenAI**: Use Ollama or other custom OpenAI-compatible providers to run models locally.
+  - Zero API costs and complete privacy with no data leaving your machine.
 
 - **Recommended Models**:
   - **Qwen3-30B-A3B-Instruct-2507**

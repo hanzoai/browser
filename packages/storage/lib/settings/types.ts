@@ -19,6 +19,7 @@ export enum ProviderTypeEnum {
   Groq = 'groq',
   Cerebras = 'cerebras',
   Llama = 'llama',
+  Hanzo = 'hanzo',
   CustomOpenAI = 'custom_openai',
 }
 
@@ -48,6 +49,12 @@ export const llmProviderModelNames = {
     'Llama-3.3-8B-Instruct',
     'Llama-4-Maverick-17B-128E-Instruct-FP8',
     'Llama-4-Scout-17B-16E-Instruct-FP8',
+  ],
+  [ProviderTypeEnum.Hanzo]: [
+    'hanzo-1',
+    'llama-3.3-70b-instruct',
+    'qwen-2.5-coder-32b',
+    'deepseek-r1-distill-qwen-32b',
   ],
   // Custom OpenAI providers don't have predefined models as they are user-defined
 };
