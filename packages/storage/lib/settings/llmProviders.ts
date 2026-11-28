@@ -67,6 +67,7 @@ export function getProviderTypeByProviderId(providerId: string): ProviderTypeEnu
     case ProviderTypeEnum.OpenRouter:
     case ProviderTypeEnum.Groq:
     case ProviderTypeEnum.Cerebras:
+    case ProviderTypeEnum.Hanzo:
       return providerId;
     default:
       return ProviderTypeEnum.CustomOpenAI;
@@ -99,6 +100,8 @@ export function getDefaultDisplayNameFromProviderId(providerId: string): string 
       return 'Cerebras';
     case ProviderTypeEnum.Llama:
       return 'Llama';
+    case ProviderTypeEnum.Hanzo:
+      return 'Hanzo Engine (Local / BYOK)';
     default:
       return providerId; // Use the provider id as display name for custom providers by default
   }
@@ -137,6 +140,15 @@ export function getDefaultProviderConfig(providerId: string): ProviderConfig {
         type: ProviderTypeEnum.Ollama,
         modelNames: llmProviderModelNames[providerId],
         baseUrl: 'http://localhost:11434',
+        createdAt: Date.now(),
+      };
+    case ProviderTypeEnum.Hanzo:
+      return {
+        apiKey: 'hanzo-byok',
+        name: getDefaultDisplayNameFromProviderId(ProviderTypeEnum.Hanzo),
+        type: ProviderTypeEnum.Hanzo,
+        baseUrl: 'http://127.0.0.1:1234/v1',
+        modelNames: [...(llmProviderModelNames[ProviderTypeEnum.Hanzo] || [])],
         createdAt: Date.now(),
       };
     case ProviderTypeEnum.AzureOpenAI:

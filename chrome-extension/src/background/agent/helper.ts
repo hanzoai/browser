@@ -381,6 +381,14 @@ export function createChatModel(providerConfig: ProviderConfig, modelConfig: Mod
 
       return new ChatLlama(args);
     }
+    case ProviderTypeEnum.Hanzo: {
+      const hanzoConfig = {
+        ...providerConfig,
+        apiKey: providerConfig.apiKey || 'hanzo-byok',
+        baseUrl: providerConfig.baseUrl || 'http://127.0.0.1:1234/v1',
+      };
+      return createOpenAIChatModel(hanzoConfig, modelConfig, undefined);
+    }
     default: {
       // by default, we think it's a openai-compatible provider
       // Pass undefined for extraFetchOptions for default/custom cases
